@@ -17,7 +17,7 @@ const Sidebar = () => {
           throw new Error("Authorization headers are missing.");
         }
 
-        const response = await axios.get("http://localhost:3000/api/user/data", {
+        const response = await axios.get("http://localhost:3000/api/auth/me", {
           headers: {
             Authorization: `Bearer ${token}`, // Pass token as Authorization header
             id: userId, // Pass user ID as custom header

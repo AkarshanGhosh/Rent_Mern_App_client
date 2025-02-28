@@ -25,7 +25,7 @@ const Messages = () => {
         }
 
         // Get user data
-        const userResponse = await axios.get("http://localhost:3000/api/user/data", {
+        const userResponse = await axios.get("http://localhost:3000/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserData(userResponse.data.userData);

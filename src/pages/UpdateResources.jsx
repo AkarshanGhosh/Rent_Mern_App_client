@@ -25,7 +25,7 @@ const UpdateResources = () => {
     const fetchResources = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/resource/get-all-resource",
+          "Renhttp://localhost:3000/api/items/allitemstal",
           { headers }
         );
         if (response.data && Array.isArray(response.data.data)) {

@@ -21,9 +21,7 @@ const ViewResources = () => {
         const token = sessionStorage.getItem("token");
         if (token) {
           const response = await axios.get("http://localhost:3000/api/auth/me", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+            headers: { Authorization: `Bearer ${token}` },
           });
           setUserData(response.data.userData); // Store user data
         }
@@ -35,10 +33,8 @@ const ViewResources = () => {
     // Fetch resource data
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/items/${id}`
-        );
-        setData(response.data.data);
+        const response = await axios.get(`http://localhost:3000/api/items/${id}`);
+        setData(response.data); // ✅ Fix: Ensure correct API response handling
       } catch (error) {
         console.error("Error fetching resource:", error);
         setError(true);
@@ -53,9 +49,9 @@ const ViewResources = () => {
 
   const headers = userData
     ? {
-        id: userData.id, 
+        id: userData._id, // ✅ Fix: Ensure correct user ID is passed
         authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        resourceId: id, 
+        resourceId: id,
       }
     : {};
 
@@ -114,7 +110,7 @@ const ViewResources = () => {
           <div className="lg:w-1/2">
             <div className="h-[88vh] bg-zinc-900 rounded flex justify-center items-center p-4">
               <img
-                src={data.image}
+                src={data.image || "https://via.placeholder.com/150"}
                 alt={data.title}
                 className="h-full max-h-[88vh] object-contain rounded"
               />
@@ -133,46 +129,21 @@ const ViewResources = () => {
               {isLoggedIn ? (
                 <>
                   {location.state?.fromReadLater ? (
-                    <>
-                      <button
-                        className="flex items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-all duration-300 text-lg"
-                        onClick={handleRemoveFromReadLater}
-                      >
-                        Remove from Read Later
-                      </button>
-                    </>
+                    <button
+                      className="flex items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-all duration-300 text-lg"
+                      onClick={handleRemoveFromReadLater}
+                    >
+                      Remove from Read Later
+                    </button>
                   ) : (
-                    <>
-                      <button
-                        className="flex items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-all duration-300 text-lg"
-                        onClick={handleReadLater}
-                      >
-                        <FaBookReader size={20} />
-                        Read Later
-                      </button>
-                    </>
+                    <button
+                      className="flex items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-all duration-300 text-lg"
+                      onClick={handleReadLater}
+                    >
+                      <FaBookReader size={20} />
+                      Read Later
+                    </button>
                   )}
-
-                  <button
-                    className="flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition-all duration-300 text-lg"
-                  >
-                    <FaFileDownload size={20} />
-                    Download
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      if (data?.url) {
-                        window.location.href = data.url; // Redirect to the resource URL directly
-                      } else {
-                        setNotification("No valid link found for this resource.");
-                      }
-                    }}
-                    className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-all duration-300 text-lg"
-                  >
-                    <FaReadme size={20} />
-                    Read Now
-                  </button>
                 </>
               ) : (
                 <p className="text-lg text-zinc-400 font-medium">

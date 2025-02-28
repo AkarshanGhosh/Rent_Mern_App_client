@@ -57,7 +57,7 @@ const SignUpBody = () => {
       {/* Left Section */}
       <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center mt-8 lg:mt-0">
         <p className="mt-4 text-lg lg:text-xl text-zinc-400 text-center lg:text-left">
-          Create an account and join the Legal Read community to explore our
+          Create an account and join the Rental community to explore our
           curated collection of legal resources designed for your needs.
         </p>
       </div>

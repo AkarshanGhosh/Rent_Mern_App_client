@@ -6,17 +6,17 @@ const UnderConstruction = () => {
   const plans = [
     {
       name: "User Plan",
-      price: "$9.99/month",
+      price: "INR 300/month",
       features: ["Free and Faster delivery", "Flexible Cancellation Policy", "Extra rent points","discounts on longer rents"],
     },
     {
       name: "Provider Plan",
-      price: "$19.99/month",
+      price: "INR 800/month",
       features: ["Zero Comissions", "More warehouse space", "View customer points","better product promotion"],
     },
     {
       name: "Super Plan",
-      price: "$29.99/month",
+      price: "INR 900/month",
       features: ["All Pro features of both the previous plans", "24/7 support", "Unlimited storage", "Exclusive content"],
     },
   ];

@@ -26,7 +26,7 @@ const ProfileBody = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:3000/api/user/data", {
+        const response = await axios.get("http://localhost:3000/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -181,7 +181,7 @@ const ProfileBody = () => {
                     <h3 className="text-xl font-semibold">{product.name}</h3>
                     <p className="text-md text-zinc-300">{product.description}</p>
                     <p className="text-md text-yellow-400 font-semibold">
-                      ${product.price} per day
+                      {product.price} per day
                     </p>
                     {product.image && (
                       <img src={product.image} alt={product.name} className="mt-2 w-full h-40 object-cover rounded-lg" />

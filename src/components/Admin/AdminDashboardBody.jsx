@@ -18,7 +18,7 @@ const AdminDashboard = () => {
         }
 
         // Fetch admin data from the API
-        const response = await axios.get("http://localhost:3000/api/user/data", {
+        const response = await axios.get("http://localhost:3000/api/auth/me", {
           headers: {
             Authorization: `Bearer ${token}`, // Pass the token in the Authorization header
           },
