@@ -10,7 +10,7 @@ const ViewAllResources = () => {
     const fetchResources = async () => {
       try {
         // Fetch resources from the API
-        const response = await axios.get("http://localhost:3000/api/resources");
+        const response = await axios.get("http://localhost:3000/api/items/allitems");
         setResources(response.data); // Assuming response.data contains an array of resources
       } catch (err) {
         console.error("Error fetching resources:", err);
@@ -40,7 +40,8 @@ const ViewAllResources = () => {
             <th className="py-2 px-4 border-b border-gray-700">ID</th>
             <th className="py-2 px-4 border-b border-gray-700">Title</th>
             <th className="py-2 px-4 border-b border-gray-700">Category</th>
-            <th className="py-2 px-4 border-b border-gray-700">Author</th>
+            <th className="py-2 px-4 border-b border-gray-700">Description:</th>
+            <th className="py-2 px-4 border-b border-gray-700">Price:</th>
             <th className="py-2 px-4 border-b border-gray-700">Actions</th>
           </tr>
         </thead>
@@ -50,7 +51,8 @@ const ViewAllResources = () => {
               <td className="py-2 px-4 border-b border-gray-700">{resource.id}</td>
               <td className="py-2 px-4 border-b border-gray-700">{resource.title}</td>
               <td className="py-2 px-4 border-b border-gray-700">{resource.category}</td>
-              <td className="py-2 px-4 border-b border-gray-700">{resource.author}</td>
+              <td className="py-2 px-4 border-b border-gray-700">{resource.description}</td>
+              <td className="py-2 px-4 border-b border-gray-700">{resource.rental_price}</td>
               <td className="py-2 px-4 border-b border-gray-700">
                 <button className="text-blue-500 hover:underline">View</button>
                 <button className="text-yellow-500 hover:underline ml-2">Edit</button>

@@ -20,7 +20,7 @@ const ViewResources = () => {
       try {
         const token = sessionStorage.getItem("token");
         if (token) {
-          const response = await axios.get("http://localhost:3000/api/user/data", {
+          const response = await axios.get("http://localhost:3000/api/auth/me", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -36,7 +36,7 @@ const ViewResources = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/resource/get-resource-by-id/${id}`
+          `http://localhost:3000/api/items/${id}`
         );
         setData(response.data.data);
       } catch (error) {
@@ -123,8 +123,8 @@ const ViewResources = () => {
 
           <div className="lg:w-1/2 mt-8 lg:mt-0 lg:ml-8">
             <h1 className="text-4xl text-white font-bold">{data.title}</h1>
-            <p className="text-lg text-zinc-400 mt-2">By {data.author}</p>
-            <p className="text-lg text-zinc-500 mt-4">{data.desc}</p>
+            <p className="text-lg text-zinc-400 mt-2">By {data.description}</p>
+            <p className="text-lg text-zinc-500 mt-4">{data.rental_price}</p>
             <p className="text-lg text-zinc-400 font-medium mt-4">
               Category: {data.category}
             </p>

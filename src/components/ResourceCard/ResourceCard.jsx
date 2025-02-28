@@ -17,8 +17,9 @@ const ResourceCard = ({ data }) => {
           />
         </div>
         <h2 className="mt-4 text-xl font-semibold text-gray-900">{data.title}</h2>
-        <p className="mt-2 text-gray-500 font-semibold">by {data.author}</p>
+        <p className="mt-2 text-gray-500 font-semibold">by {data.description}</p>
         <p className="mt-2 text-yellow-600 font-semibold">Category: {data.category}</p>
+        <p className="mt-2 text-yellow-600 font-semibold">Category: {data.rental_price}</p>
       </div>
     </Link>
   );
