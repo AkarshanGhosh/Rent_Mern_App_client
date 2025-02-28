@@ -58,7 +58,7 @@ const ViewResources = () => {
   const handleReadLater = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:3000/api/readlater/add-resource-to-read-later",
+        "",// add to cart api
         {},
         { headers }
       );
