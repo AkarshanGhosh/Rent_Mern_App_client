@@ -62,9 +62,9 @@ const ViewResources = () => {
         {},
         { headers }
       );
-      setNotification(response.data.message || "Added to Read Later!");
+      setNotification(response.data.message || "Added to Cart!");
     } catch (error) {
-      setNotification("Failed to add to Read Later.");
+      setNotification("Failed to add to Cart.");
     }
   };
 
@@ -75,9 +75,9 @@ const ViewResources = () => {
         {},
         { headers }
       );
-      setNotification(response.data.message || "Removed from Read Later!");
+      setNotification(response.data.message || "Removed from Cart!");
     } catch (error) {
-      setNotification("Failed to remove from Read Later.");
+      setNotification("Failed to remove from Cart.");
     }
   };
 
@@ -133,7 +133,7 @@ const ViewResources = () => {
                       className="flex items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-all duration-300 text-lg"
                       onClick={handleRemoveFromReadLater}
                     >
-                      Remove from Read Later
+                      Remove from Cart
                     </button>
                   ) : (
                     <button
@@ -141,7 +141,7 @@ const ViewResources = () => {
                       onClick={handleReadLater}
                     >
                       <FaBookReader size={20} />
-                      Read Later
+                      Cart
                     </button>
                   )}
                 </>

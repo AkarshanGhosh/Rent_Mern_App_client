@@ -34,7 +34,7 @@ const ReadLater = () => {
   }, []); // Empty dependency array to run only once on component mount
 
   useEffect(() => {
-    // Fetch Read Later resources only if userData is available
+    // Fetch Cart resources only if userData is available
     const fetchReadLaterResources = async () => {
       if (!userData) return; // Don't fetch if userData is not yet available
 
@@ -50,7 +50,7 @@ const ReadLater = () => {
         );
         setReadLaterResources(response.data.data); 
       } catch (err) {
-        console.error("Error fetching Read Later resources:", err);
+        console.error("Error fetching Cart resources:", err);
         setError(true);
       } finally {
         setLoading(false);
@@ -70,7 +70,7 @@ const ReadLater = () => {
 
   return (
     <div>
-      <h4 className="text-3xl text-yellow-200 mb-8">Read Later</h4>
+      <h4 className="text-3xl text-yellow-200 mb-8">Cart</h4>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {readLaterResources.length > 0 ? (
           readLaterResources.map((resource) => (
@@ -94,7 +94,7 @@ const ReadLater = () => {
             </div>
           ))
         ) : (
-          <p>No resources in your Read Later list.</p>
+          <p>No resources in your Cart list.</p>
         )}
       </div>
     </div>
