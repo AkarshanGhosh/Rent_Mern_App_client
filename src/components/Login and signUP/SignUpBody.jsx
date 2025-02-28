@@ -6,6 +6,7 @@ const SignUpBody = () => {
   const [values, setValues] = useState({
     name: "",
     email: "",
+    phone_number: "", // ✅ New field added
     password: "",
   });
   const [message, setMessage] = useState(""); // To display notifications
@@ -24,15 +25,23 @@ const SignUpBody = () => {
     e.preventDefault();
 
     try {
-      if (!values.name || !values.email || !values.password) {
+      if (!values.name || !values.email || !values.phone_number || !values.password) {
         setMessageType("error");
         setMessage("All fields are required.");
+        return;
+      }
+
+      // ✅ Validate phone number (simple length check)
+      if (values.phone_number.length < 10 || values.phone_number.length > 15) {
+        setMessageType("error");
+        setMessage("Enter a valid phone number.");
         return;
       }
 
       const response = await axios.post("http://localhost:3000/api/auth/register", {
         name: values.name,
         email: values.email,
+        phone_number: values.phone_number, // ✅ Send phone number to backend
         password: values.password,
       });
 
@@ -97,6 +106,22 @@ const SignUpBody = () => {
                 placeholder="Enter your email"
                 required
                 value={values.email}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* ✅ Phone Number Field */}
+            <div>
+              <label htmlFor="phone_number" className="block text-zinc-400 font-medium mb-2">
+                Phone Number
+              </label>
+              <input
+                type="text"
+                id="phone_number"
+                className="w-full px-4 py-2 text-zinc-900 rounded-lg bg-zinc-200 focus:outline-none focus:ring focus:ring-yellow-400"
+                placeholder="Enter your phone number"
+                required
+                value={values.phone_number}
                 onChange={handleChange}
               />
             </div>
