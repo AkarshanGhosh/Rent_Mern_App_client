@@ -19,7 +19,7 @@ const RecentlyAdded = () => {
           setData([]); // ✅ Set empty array if response is incorrect
         }
       } catch (error) {
-        console.error("Error fetching recently added resources:", error);
+        console.error("Error fetching Recently Added Products:", error);
         setData([]); // ✅ Prevents `undefined` errors
       } finally {
         setLoading(false); // Stop loading regardless of success or error
@@ -31,7 +31,7 @@ const RecentlyAdded = () => {
 
   return (
     <div className="mt-8 px-4">
-      <h4 className="text-3xl text-yellow-200">Recently Added Resources</h4>
+      <h4 className="text-3xl text-yellow-200">Recently Added Products</h4>
 
       {/* Loader */}
       {loading ? (
