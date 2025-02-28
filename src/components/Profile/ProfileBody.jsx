@@ -90,9 +90,13 @@ const ProfileBody = () => {
                 className="w-32 h-32 rounded-full border-4 border-yellow-400 shadow-md"
               />
               <div className="lg:ml-6 mt-4 lg:mt-0 text-center lg:text-left">
-                <p className="text-2xl font-semibold">{userData?.name}</p>
-                <p className="text-lg text-zinc-300">{userData?.email}</p>
-                <p className="text-md text-zinc-300">User ID: {userData?.id}</p>
+                <p className="text-2xl font-semibold">{userData?.username}</p>
+                <p className="text-lg text-zinc-300">Email: {userData?.email}</p>
+                <p className="text-lg text-zinc-300">Phone: {userData?.phone_number || "N/A"}</p>
+                <p className="text-lg text-zinc-300">Role: {userData?.role}</p>
+                <p className="text-lg text-zinc-300">Address: {userData?.address || "Not provided"}</p>
+                <p className="text-md text-zinc-300">User ID: {userData?._id}</p>
+                <p className="text-lg text-zinc-300">Premium Status: {userData?.ispremium ? "Yes" : "No"}</p>
               </div>
             </div>
             {/* Additional User Information */}
