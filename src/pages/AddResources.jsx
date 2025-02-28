@@ -75,7 +75,7 @@ const AddResources = () => {
       >
         <div className="mb-4">
           <label htmlFor="url" className="block text-purple-100 font-medium">
-            Image URL
+            images URL
           </label>
           <input
             type="text"
@@ -83,7 +83,7 @@ const AddResources = () => {
             value={data.url}
             onChange={handleChange}
             className="w-full mt-2 p-2 bg-purple-800 text-purple-100 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            placeholder="Enter image URL"
+            placeholder="Enter images URL"
           />
         </div>
 

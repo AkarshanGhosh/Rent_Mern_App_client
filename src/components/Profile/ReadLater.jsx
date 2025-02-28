@@ -83,7 +83,7 @@ const ReadLater = () => {
               }}
             >
               <img
-                src={resource.image || "https://via.placeholder.com/150"}
+                src={resource.images || "https://via.placeholder.com/150"}
                 alt={resource.title}
                 className="w-full h-40 object-cover rounded-md"
               />

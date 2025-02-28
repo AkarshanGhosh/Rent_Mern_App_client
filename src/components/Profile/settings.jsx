@@ -47,15 +47,15 @@ const Settings = () => {
           )}
         </div>
 
-        {/* Update Profile Image Placeholder */}
+        {/* Update Profile images Placeholder */}
         <div className="mb-6">
-          <label htmlFor="image" className="block text-sm font-medium text-yellow-200 mb-2">
-            Update Profile Image
+          <label htmlFor="images" className="block text-sm font-medium text-yellow-200 mb-2">
+            Update Profile images
           </label>
           <input
             type="file"
-            id="image"
-            accept="image/*"
+            id="images"
+            accept="images/*"
             className="w-full border border-gray-600 rounded-lg p-3 text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             disabled
           />
@@ -63,7 +63,7 @@ const Settings = () => {
             className="w-full mt-3 bg-gray-500 text-white py-2 rounded-lg cursor-not-allowed"
             disabled
           >
-            Update Image (Feature Coming Soon)
+            Update images (Feature Coming Soon)
           </button>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Loader from "../Loder"; 
-import { FaBookReader, FaFileDownload, FaReadme } from "react-icons/fa";
+import { FaShoppingCart, FaExternalLinkAlt } from "react-icons/fa";
 
 const ViewResources = () => {
   const { id } = useParams(); // Extract resource ID from the URL
@@ -110,7 +110,7 @@ const ViewResources = () => {
           <div className="lg:w-1/2">
             <div className="h-[88vh] bg-zinc-900 rounded flex justify-center items-center p-4">
               <img
-                src={data.image || "https://via.placeholder.com/150"}
+                src={data.images || "https://via.placeholder.com/150"}
                 alt={data.title}
                 className="h-full max-h-[88vh] object-contain rounded"
               />
@@ -119,8 +119,8 @@ const ViewResources = () => {
 
           <div className="lg:w-1/2 mt-8 lg:mt-0 lg:ml-8">
             <h1 className="text-4xl text-white font-bold">{data.title}</h1>
-            <p className="text-lg text-zinc-400 mt-2">By {data.description}</p>
-            <p className="text-lg text-zinc-500 mt-4">{data.rental_price}</p>
+            <p className="text-lg text-zinc-400 mt-2"> {data.description}</p>
+            <p className="text-lg text-zinc-500 mt-4">₹{data.rental_price}</p>
             <p className="text-lg text-zinc-400 font-medium mt-4">
               Category: {data.category}
             </p>
@@ -140,10 +140,22 @@ const ViewResources = () => {
                       className="flex items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-all duration-300 text-lg"
                       onClick={handleReadLater}
                     >
-                      <FaBookReader size={20} />
-                      Cart
+                      <FaShoppingCart size={20} />
+                      Add to Cart
                     </button>
                   )}
+
+                  {/*  New "Model" Button */}
+                  <button
+                    className="flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition-all duration-300 text-lg"
+                    onClick={() => {
+                      // Add the model link here
+                      window.open("#", "_blank");
+                    }}
+                  >
+                    <FaExternalLinkAlt size={20} />
+                    Model
+                  </button>
                 </>
               ) : (
                 <p className="text-lg text-zinc-400 font-medium">

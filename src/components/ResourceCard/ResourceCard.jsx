@@ -11,7 +11,7 @@ const ResourceCard = ({ data }) => {
       <div className="bg-yellow-100 rounded-lg p-4 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300">
         <div className="bg-white rounded-lg flex items-center justify-center">
           <img
-            src={data.image || "https://via.placeholder.com/150"}
+            src={data.images}
             alt={data.title || "Resource"}
             className="w-full h-[25vh] object-cover rounded-lg"
           />
@@ -30,7 +30,7 @@ ResourceCard.propTypes = {
     url: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string, // Changed from author
-    image: PropTypes.string,
+    images: PropTypes.string,
     category: PropTypes.string,
     rental_price: PropTypes.number, // Added rental_price
     _id: PropTypes.string.isRequired,

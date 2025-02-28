@@ -121,7 +121,7 @@ const UpdateResources = () => {
 
           <div className="mb-4">
             <label htmlFor="url" className="block text-gray-300 font-medium">
-              Image URL
+              images URL
             </label>
             <input
               type="text"
@@ -129,7 +129,7 @@ const UpdateResources = () => {
               value={data?.url || ""}
               onChange={handleChange}
               className="w-full mt-2 p-2 bg-gray-700 text-gray-100 rounded"
-              placeholder="Enter image URL"
+              placeholder="Enter images URL"
             />
           </div>
 
